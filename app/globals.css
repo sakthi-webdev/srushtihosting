@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --color-white: #FFFFFF;
+  --color-surface: #FAFAFA;
+  --color-ink: #0F0F0F;
+  --color-ink-muted: #52525B;
+  --color-border: #E5E5E5;
+  --color-border-subtle: #F0F0F0;
+  
+  --color-red: #FF0000;
+  --color-red-600: #E31E1E;
+  --color-red-50: #FFF1F0;
+}
+
+@theme {
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-border-subtle: var(--color-border-subtle);
+  
+  --color-brand-red: var(--color-red);
+  --color-accent-red: var(--color-red-600);
+  --color-tint-red: var(--color-red-50);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-geist), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphic utilities */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+}
