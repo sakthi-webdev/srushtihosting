@@ -8,8 +8,6 @@ import { siteConfig } from '@/config/site';
 import { sectionFlags } from '@/config/sections';
 
 export const Contact: React.FC = () => {
-  if (!sectionFlags.contact) return null;
-
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -18,6 +16,8 @@ export const Contact: React.FC = () => {
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  if (!sectionFlags.contact) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,9 +38,10 @@ export const Contact: React.FC = () => {
 
       setStatus('success');
       setFormState({ name: '', email: '', service: 'Web Hosting', message: '' });
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus('error');
-      setErrorMessage(err.message || 'An error occurred. Please try again.');
+      const msg = err instanceof Error ? err.message : 'An error occurred. Please try again.';
+      setErrorMessage(msg);
     }
   };
 

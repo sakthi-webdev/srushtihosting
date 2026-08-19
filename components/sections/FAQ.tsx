@@ -6,9 +6,9 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 import { sectionFlags } from '@/config/sections';
 
 export const FAQ: React.FC = () => {
-  if (!sectionFlags.faq) return null;
-
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  if (!sectionFlags.faq) return null;
 
   const leftFaqs = [
     {

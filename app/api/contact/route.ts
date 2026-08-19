@@ -48,10 +48,11 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true, data });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : 'Internal server error.';
     console.error('Contact API Error:', err);
     return NextResponse.json(
-      { error: err.message || 'Internal server error.' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
