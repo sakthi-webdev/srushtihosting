@@ -88,7 +88,30 @@ export const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Left Column (7 cols): Infinite Vertical Marquee Container with CSS Alpha Mask & Hover Pause */}
+          {/* Title & Description Column (Renders FIRST on mobile, RIGHT on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="order-1 lg:order-2 lg:col-span-5 text-left space-y-6"
+          >
+            <div className="inline-block">
+              <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
+                REVIEWS
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-black text-[#0F0F0F] tracking-tight leading-[1.12]">
+              Our client&apos;s experiences speak volumes
+            </h2>
+
+            <p className="text-base text-[#52525B] leading-relaxed font-normal">
+              Read how businesses, agencies, and online store owners trust Srushti Hosting to power their websites with fast NVMe hosting infrastructure and 24/7 technical support.
+            </p>
+          </motion.div>
+
+          {/* Reviews Marquee Column (Renders SECOND on mobile, LEFT on desktop) */}
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -96,7 +119,7 @@ export const Testimonials: React.FC = () => {
               maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
             }}
-            className="lg:col-span-7 relative h-[520px] overflow-hidden rounded-3xl p-2 group"
+            className="order-2 lg:order-1 lg:col-span-7 relative h-[520px] overflow-hidden rounded-3xl p-2 group"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
 
@@ -170,29 +193,6 @@ export const Testimonials: React.FC = () => {
 
             </div>
           </div>
-
-          {/* Right Column (5 cols): Title & Description */}
-          <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 text-left space-y-6"
-          >
-            <div className="inline-block">
-              <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
-                REVIEWS
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-black text-[#0F0F0F] tracking-tight leading-[1.12]">
-              Our client&apos;s experiences speak volumes
-            </h2>
-
-            <p className="text-base text-[#52525B] leading-relaxed font-normal">
-              Read how businesses, agencies, and online store owners trust Srushti Hosting to power their websites with fast NVMe hosting infrastructure and 24/7 technical support.
-            </p>
-          </motion.div>
 
         </div>
 
