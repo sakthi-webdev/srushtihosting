@@ -126,7 +126,7 @@ export const Testimonials: React.FC = () => {
                         &quot;{item.quote}&quot;
                       </p>
                       <div>
-                        <h4 className="text-xs font-extrabold text-[#0F0F0F]">{item.name}</h4>
+                        <p className="text-xs font-extrabold text-[#0F0F0F]">{item.name}</p>
                         <span className="text-[11px] text-[#52525B]">{item.role}</span>
                       </div>
                     </div>
@@ -160,7 +160,7 @@ export const Testimonials: React.FC = () => {
                         &quot;{item.quote}&quot;
                       </p>
                       <div>
-                        <h4 className="text-xs font-extrabold text-[#0F0F0F]">{item.name}</h4>
+                        <p className="text-xs font-extrabold text-[#0F0F0F]">{item.name}</p>
                         <span className="text-[11px] text-[#52525B]">{item.role}</span>
                       </div>
                     </div>
@@ -180,7 +180,7 @@ export const Testimonials: React.FC = () => {
             className="lg:col-span-5 text-left space-y-6"
           >
             <div className="inline-block">
-              <span className="bg-[#F59E0B] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
+              <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
                 REVIEWS
               </span>
             </div>

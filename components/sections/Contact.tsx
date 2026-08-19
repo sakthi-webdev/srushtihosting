@@ -67,7 +67,7 @@ export const Contact: React.FC = () => {
             className="lg:col-span-5 space-y-6 text-left"
           >
             <div className="inline-block">
-              <span className="bg-[#F59E0B] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
+              <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
                 Get In Touch
               </span>
             </div>

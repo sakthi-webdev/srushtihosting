@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
             
             {/* Amber Eyebrow Badge */}
             <div className="inline-block">
-              <span className="bg-[#F59E0B] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
+              <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
                 The Hosting Experts
               </span>
             </div>
@@ -75,6 +75,8 @@ export const Hero: React.FC = () => {
                   width={600}
                   height={500}
                   priority
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full h-auto object-contain max-h-[460px]"
                   onError={() => setImageError(true)}
                 />
@@ -108,7 +110,7 @@ export const Hero: React.FC = () => {
               <FiHeadphones className="w-7 h-7" />
             </div>
             <div className="text-left">
-              <h4 className="text-lg font-bold text-[#0F0F0F]">24/7 Availability</h4>
+              <p className="text-lg font-bold text-[#0F0F0F]">24/7 Availability</p>
               <p className="text-xs text-[#52525B] font-medium">Around-the-clock technical assistance</p>
             </div>
           </div>
@@ -119,7 +121,7 @@ export const Hero: React.FC = () => {
               <FiUsers className="w-7 h-7" />
             </div>
             <div className="text-left">
-              <h4 className="text-lg font-bold text-[#0F0F0F]">Friendly & Efficient</h4>
+              <p className="text-lg font-bold text-[#0F0F0F]">Friendly & Efficient</p>
               <p className="text-xs text-[#52525B] font-medium">Always happy to assist your business</p>
             </div>
           </div>
@@ -130,7 +132,7 @@ export const Hero: React.FC = () => {
               <FiPieChart className="w-7 h-7" />
             </div>
             <div className="text-left">
-              <h4 className="text-lg font-bold text-[#0F0F0F]">99.9% Uptime SLA</h4>
+              <p className="text-lg font-bold text-[#0F0F0F]">99.9% Uptime SLA</p>
               <p className="text-xs text-[#52525B] font-medium">Top-rated hosting performance</p>
             </div>
           </div>

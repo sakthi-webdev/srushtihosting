@@ -27,7 +27,7 @@ export const ServicesOverview: React.FC = () => {
           className="text-center max-w-3xl mx-auto mb-16 space-y-5"
         >
           <div className="inline-block">
-            <span className="bg-[#F59E0B] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
+            <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
               Hosting Services
             </span>
           </div>

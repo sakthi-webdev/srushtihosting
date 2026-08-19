@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
 
           {/* Legal Policies */}
           <div className="md:col-span-3 space-y-3 text-left">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Legal & Compliance</h4>
+            <p className="text-sm font-bold uppercase tracking-wider text-white">Legal & Compliance</p>
             <ul className="space-y-3 text-sm text-zinc-300 font-medium">
               <li>
                 <Link href={siteConfig.links.terms} className="hover:text-amber-400 transition-colors">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
 
           {/* Client Portal & Support */}
           <div className="md:col-span-3 space-y-3 text-left">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Client Portal & Help</h4>
+            <p className="text-sm font-bold uppercase tracking-wider text-white">Client Portal & Help</p>
             <ul className="space-y-3 text-sm text-zinc-300 font-medium">
               <li>
                 <a
