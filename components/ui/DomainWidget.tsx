@@ -22,9 +22,9 @@ function DomainWidgetContent() {
     setMounted(true);
   }, []);
 
-  // Auto-open modal if URL contains ?upm-dac-query= on initial load
+  // Auto-open modal if URL contains ?upm-dac-search= or ?upm-dac-query= on initial load
   useEffect(() => {
-    const queryParam = searchParams.get('upm-dac-query');
+    const queryParam = searchParams.get('upm-dac-search') || searchParams.get('upm-dac-query');
     if (queryParam) {
       setDomainInput(queryParam);
       setActiveQuery(queryParam);
@@ -120,7 +120,7 @@ function DomainWidgetContent() {
     setActiveQuery(query);
     setIsModalOpen(true);
 
-    const newUrl = `${pathname}?upm-dac-query=${encodeURIComponent(query)}`;
+    const newUrl = `${pathname}?upm-dac-search=${encodeURIComponent(query)}`;
     window.history.pushState(null, '', newUrl);
   };
 
