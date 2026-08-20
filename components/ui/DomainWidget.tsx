@@ -46,13 +46,16 @@ function DomainWidgetContent() {
     };
   }, [isModalOpen]);
 
-  // Dynamically theme Upmind DAC shadow DOM elements (brand red buttons)
+  // Dynamically theme Upmind DAC shadow DOM & auto-trigger search for active query
   useEffect(() => {
-    if (!isModalOpen) return;
+    if (!isModalOpen || !activeQuery) return;
 
-    const applyBrandStyles = () => {
+    let hasSearched = false;
+
+    const applyBrandStylesAndSearch = () => {
       const el = document.querySelector('upm-dac');
       if (el && el.shadowRoot) {
+        // 1. Inject brand styles
         if (!el.shadowRoot.querySelector('#upm-brand-styles')) {
           const style = document.createElement('style');
           style.id = 'upm-brand-styles';
@@ -82,10 +85,29 @@ function DomainWidgetContent() {
           `;
           el.shadowRoot.appendChild(style);
         }
+
+        // 2. Auto-fill Upmind's shadow input & trigger search button if not already filled
+        if (!hasSearched) {
+          const input = el.shadowRoot.querySelector('input') as HTMLInputElement | null;
+          const button = el.shadowRoot.querySelector('button') as HTMLButtonElement | null;
+
+          if (input) {
+            if (input.value !== activeQuery) {
+              input.value = activeQuery;
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+
+            if (button) {
+              button.click();
+              hasSearched = true;
+            }
+          }
+        }
       }
     };
 
-    const interval = setInterval(applyBrandStyles, 200);
+    const interval = setInterval(applyBrandStylesAndSearch, 150);
     return () => clearInterval(interval);
   }, [isModalOpen, activeQuery]);
 
