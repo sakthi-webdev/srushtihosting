@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
+import { createPortal } from 'react-dom';
 import Script from 'next/script';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { FiSearch, FiGlobe, FiX } from 'react-icons/fi';
@@ -13,13 +14,20 @@ function DomainWidgetContent() {
   const pathname = usePathname();
 
   const [domainInput, setDomainInput] = useState('');
+  const [activeQuery, setActiveQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Auto-open modal if URL contains ?upm-dac-query=
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Auto-open modal if URL contains ?upm-dac-query= on initial load
   useEffect(() => {
     const queryParam = searchParams.get('upm-dac-query');
     if (queryParam) {
       setDomainInput(queryParam);
+      setActiveQuery(queryParam);
       setIsModalOpen(true);
     } else {
       setIsModalOpen(false);
@@ -38,7 +46,7 @@ function DomainWidgetContent() {
     };
   }, [isModalOpen]);
 
-  // Dynamically theme Upmind DAC shadow DOM elements (brand red buttons, clean inputs)
+  // Dynamically theme Upmind DAC shadow DOM elements (brand red buttons)
   useEffect(() => {
     if (!isModalOpen) return;
 
@@ -79,20 +87,24 @@ function DomainWidgetContent() {
 
     const interval = setInterval(applyBrandStyles, 200);
     return () => clearInterval(interval);
-  }, [isModalOpen]);
+  }, [isModalOpen, activeQuery]);
 
-  // Handle Search Submission (navigate URL so upm-dac.min.js reads query on page load)
+  // Handle Search Submission
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!domainInput.trim()) return;
 
     const query = domainInput.trim().toLowerCase();
-    window.location.href = `${pathname}?upm-dac-query=${encodeURIComponent(query)}`;
+    setActiveQuery(query);
+    setIsModalOpen(true);
+
+    const newUrl = `${pathname}?upm-dac-query=${encodeURIComponent(query)}`;
+    window.history.pushState(null, '', newUrl);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    window.location.href = pathname;
+    window.history.pushState(null, '', pathname);
   };
 
   return (
@@ -131,15 +143,15 @@ function DomainWidgetContent() {
         </div>
       </form>
 
-      {/* Hosting.com Style Domain Search Results Overlay Modal */}
-      <AnimatePresence>
-        {isModalOpen && (
+      {/* Full-Screen React Portal Overlay for Domain Search Results */}
+      {mounted && isModalOpen && createPortal(
+        <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[9999] h-[100dvh] w-full bg-[#f6f8f7] flex flex-col overflow-y-auto"
+            className="fixed inset-0 z-[99999] h-[100dvh] w-full bg-[#f6f8f7] flex flex-col overflow-y-auto text-left"
           >
             {/* Modal Header Bar */}
             <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 pt-8 pb-4 flex items-center justify-between shrink-0">
@@ -161,14 +173,16 @@ function DomainWidgetContent() {
             <div className="flex-grow w-full max-w-4xl mx-auto px-4 sm:px-6 py-6 overflow-y-auto">
               <div className="w-full min-h-[450px]">
                 <upm-dac
+                  key={activeQuery}
                   order-config-url={siteConfig.upmind.orderConfigUrl}
                   currency-code={siteConfig.upmind.currency}
                 ></upm-dac>
               </div>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }
@@ -182,6 +196,7 @@ export const DomainWidget: React.FC = () => {
     </Suspense>
   );
 };
+
 
 
 
