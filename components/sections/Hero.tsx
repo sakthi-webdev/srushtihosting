@@ -77,8 +77,8 @@ export const Hero: React.FC = () => {
                   priority
                   loading="eager"
                   fetchPriority="high"
-                  style={{ width: 'auto', height: 'auto' }}
-                  className="w-full h-auto object-contain max-h-[460px]"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                  className="object-contain max-h-[460px]"
                   onError={() => setImageError(true)}
                 />
               </div>

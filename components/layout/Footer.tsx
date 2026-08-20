@@ -20,8 +20,8 @@ export const Footer: React.FC = () => {
                 alt="Srushti Hosting"
                 width={200}
                 height={56}
-                style={{ width: 'auto', height: 'auto' }}
-                className="object-contain h-16 sm:h-16 w-auto brightness-110"
+                style={{ height: '66px', width: 'auto' }}
+                className="object-contain brightness-110"
               />
             </Link>
             <p className="text-sm text-zinc-300 max-w-md leading-relaxed font-normal">
@@ -89,12 +89,12 @@ export const Footer: React.FC = () => {
 
           {/* Payment Method SVG Icons Clean Bar */}
           <div className="flex items-center gap-4 flex-wrap">
-            <Image src="/icons/visa.svg" alt="Visa" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
-            <Image src="/icons/master-card.svg" alt="Mastercard" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
-            <Image src="/icons/american-express.svg" alt="American Express" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
-            <Image src="/icons/rupay.svg" alt="RuPay" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
-            <Image src="/icons/discover.svg" alt="Discover" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
-            <Image src="/icons/upi.svg" alt="UPI" width={36} height={22} style={{ width: 'auto', height: 'auto' }} className="h-5 sm:h-6 w-auto object-contain" />
+            <Image src="/icons/visa.svg" alt="Visa" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
+            <Image src="/icons/master-card.svg" alt="Mastercard" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
+            <Image src="/icons/american-express.svg" alt="American Express" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
+            <Image src="/icons/rupay.svg" alt="RuPay" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
+            <Image src="/icons/discover.svg" alt="Discover" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
+            <Image src="/icons/upi.svg" alt="UPI" width={36} height={22} style={{ height: '24px', width: 'auto' }} className="object-contain" />
           </div>
         </div>
 

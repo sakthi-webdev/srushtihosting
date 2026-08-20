@@ -93,8 +93,8 @@ export const GoogleWorkspace: React.FC<GoogleWorkspaceProps> = () => {
                 alt="Google Workspace Enterprise Email"
                 width={450}
                 height={450}
-                style={{ width: 'auto', height: 'auto' }}
-                className="w-full h-auto object-contain max-h-[400px]"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                className="object-contain max-h-[400px]"
               />
             </div>
           </motion.div>

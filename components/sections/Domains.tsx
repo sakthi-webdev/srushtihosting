@@ -88,8 +88,8 @@ export const Domains: React.FC = () => {
                 alt="Domain Registration Infrastructure"
                 width={550}
                 height={450}
-                style={{ width: 'auto', height: 'auto' }}
-                className="w-full h-auto object-contain max-h-[420px]"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                className="object-contain max-h-[420px]"
               />
             </div>
           </motion.div>
