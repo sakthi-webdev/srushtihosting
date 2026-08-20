@@ -26,6 +26,49 @@ function DomainWidgetContent() {
     }
   }, [searchParams]);
 
+  // Dynamically theme Upmind DAC shadow DOM to match Srushti Hosting brand colors (#C81E1E)
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const applyBrandStyles = () => {
+      const el = document.querySelector('upm-dac');
+      if (el && el.shadowRoot) {
+        if (!el.shadowRoot.querySelector('#upm-brand-styles')) {
+          const style = document.createElement('style');
+          style.id = 'upm-brand-styles';
+          style.textContent = `
+            .button.is-primary, button.is-primary, .button.is-info {
+              background-color: #C81E1E !important;
+              border-color: #C81E1E !important;
+              color: #ffffff !important;
+              font-weight: 800 !important;
+              border-radius: 12px !important;
+              transition: all 0.2s ease !important;
+            }
+            .button.is-primary:hover, button.is-primary:hover, .button.is-info:hover {
+              background-color: #b01818 !important;
+              border-color: #b01818 !important;
+            }
+            a {
+              color: #C81E1E !important;
+            }
+            .input:focus, select:focus {
+              border-color: #C81E1E !important;
+              box-shadow: 0 0 0 0.125em rgba(200, 30, 30, 0.25) !important;
+            }
+            .is-active, .has-text-primary {
+              color: #C81E1E !important;
+            }
+          `;
+          el.shadowRoot.appendChild(style);
+        }
+      }
+    };
+
+    const interval = setInterval(applyBrandStyles, 250);
+    return () => clearInterval(interval);
+  }, [isModalOpen, activeQuery]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!domainInput.trim()) return;
