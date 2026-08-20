@@ -8,6 +8,14 @@ import { FiSearch, FiGlobe, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '@/config/site';
 
+const DYNAMIC_PLACEHOLDERS = [
+  'Search your dream domain (e.g. mybrand.com)...',
+  'Claim your online identity today...',
+  'Find your perfect web address...',
+  'Lock in your brand name before someone else...',
+  'Explore available .com, .in & .org domains...'
+];
+
 function DomainWidgetContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -17,6 +25,39 @@ function DomainWidgetContent() {
   const [activeQuery, setActiveQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  // Dynamic typing animation for search input placeholder
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [typedPlaceholder, setTypedPlaceholder] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const fullText = DYNAMIC_PLACEHOLDERS[placeholderIndex];
+
+    if (!isDeleting) {
+      if (typedPlaceholder.length < fullText.length) {
+        timer = setTimeout(() => {
+          setTypedPlaceholder(fullText.substring(0, typedPlaceholder.length + 1));
+        }, 55);
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      }
+    } else {
+      if (typedPlaceholder.length > 0) {
+        timer = setTimeout(() => {
+          setTypedPlaceholder(fullText.substring(0, typedPlaceholder.length - 1));
+        }, 25);
+      } else {
+        setIsDeleting(false);
+        setPlaceholderIndex((prev) => (prev + 1) % DYNAMIC_PLACEHOLDERS.length);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [typedPlaceholder, isDeleting, placeholderIndex]);
 
   useEffect(() => {
     setMounted(true);
@@ -81,7 +122,7 @@ function DomainWidgetContent() {
               type="text"
               value={domainInput}
               onChange={(e) => setDomainInput(e.target.value)}
-              placeholder="Search your ideal domain name (e.g. mybrand.com)..."
+              placeholder={typedPlaceholder || 'Search your ideal domain name...'}
               className="w-full pl-12 pr-4 py-4 bg-white border border-zinc-200 rounded-2xl text-[#0F0F0F] placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#C81E1E] focus:border-transparent text-sm sm:text-base transition-all shadow-xs"
               required
             />
