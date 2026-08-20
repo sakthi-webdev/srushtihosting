@@ -98,7 +98,7 @@ export const Testimonials: React.FC = () => {
           >
             <div className="inline-block">
               <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
-                REVIEWS
+                Reviews
               </span>
             </div>
 

@@ -57,6 +57,7 @@ export const ServicesOverview: React.FC = () => {
                   alt="Web Hosting"
                   width={176}
                   height={176}
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -87,6 +88,7 @@ export const ServicesOverview: React.FC = () => {
                   alt="Google Workspace"
                   width={176}
                   height={176}
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -121,6 +123,7 @@ export const ServicesOverview: React.FC = () => {
                     alt="Domain Name Registration"
                     width={224}
                     height={224}
+                    style={{ width: 'auto', height: 'auto' }}
                     className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -159,6 +162,7 @@ export const ServicesOverview: React.FC = () => {
                   alt="SSL Security & Wildcard Add-ons"
                   width={176}
                   height={176}
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -189,6 +193,7 @@ export const ServicesOverview: React.FC = () => {
                   alt="Free Website Migration"
                   width={176}
                   height={176}
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

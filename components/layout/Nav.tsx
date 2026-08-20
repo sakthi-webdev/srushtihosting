@@ -55,6 +55,8 @@ export const Nav: React.FC = () => {
                   width={220}
                   height={64}
                   priority
+                  loading="eager"
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain h-16 sm:h-16 w-auto"
                 />
               </div>
@@ -119,6 +121,8 @@ export const Nav: React.FC = () => {
                   width={200}
                   height={56}
                   priority
+                  loading="eager"
+                  style={{ width: 'auto', height: 'auto' }}
                   className="object-contain h-16 w-auto"
                 />
               </Link>
