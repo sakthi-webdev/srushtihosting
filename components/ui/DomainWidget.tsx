@@ -29,8 +29,6 @@ function DomainWidgetContent() {
       setDomainInput(queryParam);
       setActiveQuery(queryParam);
       setIsModalOpen(true);
-    } else {
-      setIsModalOpen(false);
     }
   }, [searchParams]);
 
@@ -45,71 +43,6 @@ function DomainWidgetContent() {
       document.body.style.overflow = '';
     };
   }, [isModalOpen]);
-
-  // Dynamically theme Upmind DAC shadow DOM & auto-trigger search for active query
-  useEffect(() => {
-    if (!isModalOpen || !activeQuery) return;
-
-    let hasSearched = false;
-
-    const applyBrandStylesAndSearch = () => {
-      const el = document.querySelector('upm-dac');
-      if (el && el.shadowRoot) {
-        // 1. Inject brand styles
-        if (!el.shadowRoot.querySelector('#upm-brand-styles')) {
-          const style = document.createElement('style');
-          style.id = 'upm-brand-styles';
-          style.textContent = `
-            .button.is-primary, button.is-primary, .button.is-info {
-              background-color: #C81E1E !important;
-              border-color: #C81E1E !important;
-              color: #ffffff !important;
-              font-weight: 800 !important;
-              border-radius: 10px !important;
-              transition: all 0.2s ease !important;
-            }
-            .button.is-primary:hover, button.is-primary:hover, .button.is-info:hover {
-              background-color: #b01818 !important;
-              border-color: #b01818 !important;
-            }
-            a {
-              color: #C81E1E !important;
-            }
-            .input:focus, select:focus {
-              border-color: #C81E1E !important;
-              box-shadow: 0 0 0 0.125em rgba(200, 30, 30, 0.25) !important;
-            }
-            .is-active, .has-text-primary {
-              color: #C81E1E !important;
-            }
-          `;
-          el.shadowRoot.appendChild(style);
-        }
-
-        // 2. Auto-fill Upmind's shadow input & trigger search button if not already filled
-        if (!hasSearched) {
-          const input = el.shadowRoot.querySelector('input') as HTMLInputElement | null;
-          const button = el.shadowRoot.querySelector('button') as HTMLButtonElement | null;
-
-          if (input) {
-            if (input.value !== activeQuery) {
-              input.value = activeQuery;
-              input.dispatchEvent(new Event('input', { bubbles: true }));
-              input.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-
-            if (button) {
-              button.click();
-              hasSearched = true;
-            }
-          }
-        }
-      }
-    };
-
-    const interval = setInterval(applyBrandStylesAndSearch, 150);
-    return () => clearInterval(interval);
-  }, [isModalOpen, activeQuery]);
 
   // Handle Search Submission
   const handleSearch = (e: React.FormEvent) => {
