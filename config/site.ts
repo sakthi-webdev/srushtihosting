@@ -4,7 +4,7 @@ export const siteConfig = {
   url: 'https://srushtihosting.com',
   upmind: {
     clientAreaUrl: process.env.NEXT_PUBLIC_UPMIND_CLIENT_AREA_URL || 'https://client.srushtihosting.com/login',
-    orderConfigUrl: process.env.NEXT_PUBLIC_UPMIND_ORDER_CONFIG_URL || 'https://client.srushtihosting.com/order/shop/',
+    orderConfigUrl: process.env.NEXT_PUBLIC_UPMIND_ORDER_CONFIG_URL || 'https://client.srushtihosting.com/order/product',
     currency: process.env.NEXT_PUBLIC_UPMIND_CURRENCY || 'INR',
   },
   contact: {
