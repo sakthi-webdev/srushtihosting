@@ -89,7 +89,7 @@ export const GoogleWorkspace: React.FC<GoogleWorkspaceProps> = () => {
           >
             <div className="relative w-full flex justify-center">
               <Image
-                src="/google-workspace.png"
+                src="/google-workspace-services.png"
                 alt="Google Workspace Enterprise Email"
                 width={450}
                 height={450}

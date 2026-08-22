@@ -119,7 +119,7 @@ export const ServicesOverview: React.FC = () => {
               <div className="md:col-span-5 flex items-center justify-center">
                 <div className="w-48 h-48 sm:w-56 sm:h-56 relative flex items-center justify-center">
                   <Image
-                    src="/hero-banner-image.png"
+                    src="/domain-names.png"
                     alt="Domain Name Registration"
                     width={224}
                     height={224}
@@ -189,7 +189,7 @@ export const ServicesOverview: React.FC = () => {
               {/* Illustration Image */}
               <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 mb-6 flex items-center justify-center">
                 <Image
-                  src="/web-hosting.png"
+                  src="/website-migration.png"
                   alt="Free Website Migration"
                   width={176}
                   height={176}

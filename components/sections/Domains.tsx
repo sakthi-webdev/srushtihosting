@@ -84,7 +84,7 @@ export const Domains: React.FC = () => {
           >
             <div className="relative w-full flex justify-center">
               <Image
-                src="/hero-banner-image.png"
+                src="/domain-names-services.png"
                 alt="Domain Registration Infrastructure"
                 width={550}
                 height={450}

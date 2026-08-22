@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
             {!imageError ? (
               <div className="relative w-full flex justify-center">
                 <Image
-                  src="/hero-banner-image.png"
+                  src="/hosting-infrastructure.png"
                   alt="Srushti Hosting Infrastructure Illustration"
                   width={600}
                   height={500}
@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
                   Hero Banner Illustration
                 </span>
                 <p className="text-xs text-zinc-400 mt-2 max-w-xs">
-                  Place your illustration at public/hero-banner-image.png
+                  Place your illustration at public/hosting-infrastructure.png
                 </p>
               </div>
             )}
