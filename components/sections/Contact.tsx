@@ -4,40 +4,98 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMessageSquare, FiCheckCircle, FiAlertCircle, FiArrowRight } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
+import { CountrySelect } from '@/components/ui/CountrySelect';
 import { siteConfig } from '@/config/site';
 import { sectionFlags } from '@/config/sections';
+import { DEFAULT_COUNTRY, getCountryByCode } from '@/lib/countries';
+import { validateContactForm } from '@/lib/validation';
 
 export const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
+    countryCode: DEFAULT_COUNTRY.code,
+    phone: '',
     service: 'Web Hosting',
     message: '',
+    hp_website: '',
   });
+
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [renderedAt] = useState(() => Date.now());
 
   if (!sectionFlags.contact) return null;
 
+  const currentCountry = getCountryByCode(formState.countryCode);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormState((prev) => ({ ...prev, [field]: value }));
+    if (fieldErrors[field]) {
+      setFieldErrors((prev) => {
+        const copy = { ...prev };
+        delete copy[field];
+        return copy;
+      });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
     setErrorMessage('');
+
+    // Strict client-side validation
+    const validation = validateContactForm({
+      ...formState,
+      renderedAt,
+    });
+
+    if (!validation.isValid) {
+      if (validation.isSpamBot) {
+        // Drop bot submission silently as success to confuse spammers
+        setStatus('success');
+        return;
+      }
+      setFieldErrors(validation.errors);
+      setStatus('error');
+      setErrorMessage('Please fix the errors in the form before submitting.');
+      return;
+    }
+
+    setFieldErrors({});
+    setStatus('loading');
 
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({
+          ...formState,
+          renderedAt,
+        }),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
-        const data = await res.json();
+        if (data.fieldErrors) {
+          setFieldErrors(data.fieldErrors);
+        }
         throw new Error(data.error || 'Failed to submit inquiry.');
       }
 
       setStatus('success');
-      setFormState({ name: '', email: '', service: 'Web Hosting', message: '' });
+      setFormState({
+        name: '',
+        email: '',
+        countryCode: DEFAULT_COUNTRY.code,
+        phone: '',
+        service: 'Web Hosting',
+        message: '',
+        hp_website: '',
+      });
+      setFieldErrors({});
     } catch (err: unknown) {
       setStatus('error');
       const msg = err instanceof Error ? err.message : 'An error occurred. Please try again.';
@@ -54,10 +112,10 @@ export const Contact: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
+
           {/* Left Column: Info & Channels */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -83,7 +141,7 @@ export const Contact: React.FC = () => {
             {/* Channels Card */}
             <div className="bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-zinc-200/90 shadow-sm space-y-6">
               <h3 className="text-lg font-bold text-[#0F0F0F]">Contact Channels</h3>
-              
+
               <div className="space-y-5">
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
@@ -136,7 +194,7 @@ export const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Compact Contact Form Card with Increased Text Size */}
+          {/* Right Column: Compact Contact Form Card */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,15 +218,31 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {status === 'error' && (
+              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                {/* Invisible Anti-Spam Honeypot Field */}
+                <div style={{ display: 'none', opacity: 0, position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                  <label htmlFor="hp_website">Do not fill this field</label>
+                  <input
+                    type="text"
+                    id="hp_website"
+                    name="hp_website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formState.hp_website}
+                    onChange={(e) => handleInputChange('hp_website', e.target.value)}
+                  />
+                </div>
+
+                {status === 'error' && errorMessage && (
                   <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-center gap-2">
                     <FiAlertCircle className="w-5 h-5 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
 
+                {/* Row 1: Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Name Input */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
                       Your Name *
@@ -178,12 +252,22 @@ export const Contact: React.FC = () => {
                       id="name"
                       required
                       value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-3.5 bg-white border border-[#E5E5E5] rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-transparent transition-all placeholder-zinc-400"
+                      className={`w-full px-4 py-3.5 bg-white border rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 transition-all placeholder-zinc-400 ${fieldErrors.name
+                        ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
+                        : 'border-[#E5E5E5] focus:ring-zinc-400 focus:border-transparent'
+                        }`}
                     />
+                    {fieldErrors.name && (
+                      <p className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                        <FiAlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>{fieldErrors.name}</span>
+                      </p>
+                    )}
                   </div>
 
+                  {/* Email Input */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
                       Email Address *
@@ -193,34 +277,93 @@ export const Contact: React.FC = () => {
                       id="email"
                       required
                       value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="name@company.com"
-                      className="w-full px-4 py-3.5 bg-white border border-[#E5E5E5] rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-transparent transition-all placeholder-zinc-400"
+                      className={`w-full px-4 py-3.5 bg-white border rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 transition-all placeholder-zinc-400 ${fieldErrors.email
+                        ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
+                        : 'border-[#E5E5E5] focus:ring-zinc-400 focus:border-transparent'
+                        }`}
                     />
+                    {fieldErrors.email && (
+                      <p className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                        <FiAlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>{fieldErrors.email}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
 
-                {/* Service Selection Dropdown Field */}
-                <div>
-                  <label htmlFor="service" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
-                    Interested Service *
-                  </label>
-                  <select
-                    id="service"
-                    required
-                    value={formState.service}
-                    onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                    className="w-full px-4 py-3.5 bg-white border border-[#E5E5E5] rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-transparent transition-all cursor-pointer font-medium"
-                  >
-                    <option value="Web Hosting">Web Hosting</option>
-                    <option value="Domain Registration & Transfer">Domain Registration & Transfer</option>
-                    <option value="Google Workspace">Google Workspace</option>
-                    <option value="SSL Security & Wildcard Add-ons">SSL Security & Wildcard Add-ons</option>
-                    <option value="Free Website Migration">Free Website Migration</option>
-                    <option value="Other Technical Inquiry">Other Technical Inquiry</option>
-                  </select>
+                {/* Row 2: Mobile Phone Number + Interested Service */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Mobile Phone Number */}
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
+                      Phone Number *
+                    </label>
+                    <div className="flex gap-2 sm:gap-2.5">
+                      {/* Country Flag & Dial Code Custom Selector */}
+                      <CountrySelect
+                        value={formState.countryCode}
+                        onChange={(code) => handleInputChange('countryCode', code)}
+                        className="w-24 sm:w-28 shrink-0"
+                      />
+
+                      {/* Phone Input */}
+                      <div className="grow">
+                        <input
+                          type="tel"
+                          id="phone"
+                          required
+                          value={formState.phone}
+                          onChange={(e) => handleInputChange('phone', e.target.value)}
+                          placeholder={currentCountry.placeholder}
+                          className={`w-full px-3.5 py-3.5 bg-white border rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 transition-all placeholder-zinc-400 ${fieldErrors.phone
+                            ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
+                            : 'border-[#E5E5E5] focus:ring-zinc-400 focus:border-transparent'
+                            }`}
+                        />
+                      </div>
+                    </div>
+                    {fieldErrors.phone && (
+                      <p className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                        <FiAlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>{fieldErrors.phone}</span>
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Interested Service Dropdown */}
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
+                      Interested Service *
+                    </label>
+                    <select
+                      id="service"
+                      required
+                      value={formState.service}
+                      onChange={(e) => handleInputChange('service', e.target.value)}
+                      className={`w-full px-4 py-3.5 bg-white border rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 transition-all cursor-pointer font-medium ${fieldErrors.service
+                        ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
+                        : 'border-[#E5E5E5] focus:ring-zinc-400 focus:border-transparent'
+                        }`}
+                    >
+                      <option value="Web Hosting">Web Hosting</option>
+                      <option value="Domain Registration & Transfer">Domain Registration & Transfer</option>
+                      <option value="Google Workspace">Google Workspace</option>
+                      <option value="SSL Security & Wildcard Add-ons">SSL Security & Wildcard Add-ons</option>
+                      <option value="Free Website Migration">Free Website Migration</option>
+                      <option value="Other Technical Inquiry">Other Technical Inquiry</option>
+                    </select>
+                    {fieldErrors.service && (
+                      <p className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                        <FiAlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>{fieldErrors.service}</span>
+                      </p>
+                    )}
+                  </div>
                 </div>
 
+                {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-bold text-[#0F0F0F] mb-1.5">
                     Message *
@@ -230,13 +373,22 @@ export const Contact: React.FC = () => {
                     required
                     rows={4}
                     value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    placeholder="How can we assist you with hosting, domains, or email?"
-                    className="w-full px-4 py-3.5 bg-white border border-[#E5E5E5] rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-transparent transition-all resize-none placeholder-zinc-400"
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    placeholder="How can we assist you with hosting, domains, or email? (minimum 15 characters)"
+                    className={`w-full px-4 py-3.5 bg-white border rounded-xl text-sm sm:text-base text-[#0F0F0F] focus:outline-none focus:ring-2 transition-all resize-none placeholder-zinc-400 ${fieldErrors.message
+                      ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
+                      : 'border-[#E5E5E5] focus:ring-zinc-400 focus:border-transparent'
+                      }`}
                   />
+                  {fieldErrors.message && (
+                    <p className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                      <FiAlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{fieldErrors.message}</span>
+                    </p>
+                  )}
                 </div>
 
-                {/* Submit Button (Text ONLY per user request) */}
+                {/* Submit Button */}
                 <Button
                   type="submit"
                   disabled={status === 'loading'}
@@ -256,3 +408,4 @@ export const Contact: React.FC = () => {
     </section>
   );
 };
+
