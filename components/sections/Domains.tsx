@@ -89,7 +89,7 @@ export const Domains: React.FC = () => {
                 width={550}
                 height={450}
                 style={{ maxWidth: '100%', height: 'auto' }}
-                className="object-contain max-h-[420px]"
+                className="object-contain max-h-[340px] sm:max-h-[380px]"
               />
             </div>
           </motion.div>

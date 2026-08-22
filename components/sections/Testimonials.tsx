@@ -88,13 +88,13 @@ export const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Title & Description Column (Renders FIRST on mobile, RIGHT on desktop) */}
+          {/* Title & Description Column (Left on desktop, Top on mobile) */}
           <motion.div
-            initial={{ opacity: 0, x: 25 }}
+            initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="order-1 lg:order-2 lg:col-span-5 text-left space-y-6"
+            className="order-1 lg:order-1 lg:col-span-5 text-left space-y-6"
           >
             <div className="inline-block">
               <span className="bg-[#C81E1E] text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full shadow-xs tracking-wide">
@@ -111,7 +111,7 @@ export const Testimonials: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Reviews Marquee Column (Renders SECOND on mobile, LEFT on desktop) */}
+          {/* Reviews Marquee Column (Right on desktop, Bottom on mobile) */}
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -119,7 +119,7 @@ export const Testimonials: React.FC = () => {
               maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
             }}
-            className="order-2 lg:order-1 lg:col-span-7 relative h-[520px] overflow-hidden rounded-3xl p-2 group"
+            className="order-2 lg:order-2 lg:col-span-7 relative h-[520px] overflow-hidden rounded-3xl p-2 group"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
 

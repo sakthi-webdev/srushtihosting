@@ -51,12 +51,12 @@ export const ServicesOverview: React.FC = () => {
               className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-zinc-200/90 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Illustration Image */}
-              <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 mb-6 flex items-center justify-center">
+              <div className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center">
                 <Image
                   src="/web-hosting.png"
                   alt="Web Hosting"
-                  width={176}
-                  height={176}
+                  width={144}
+                  height={144}
                   style={{ width: '100%', height: '100%' }}
                   className="object-contain group-hover:scale-105 transition-transform duration-300"
                 />
@@ -82,12 +82,12 @@ export const ServicesOverview: React.FC = () => {
               className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-zinc-200/90 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Illustration Image */}
-              <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 mb-6 flex items-center justify-center">
+              <div className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center">
                 <Image
                   src="/google-workspace.png"
                   alt="Google Workspace"
-                  width={176}
-                  height={176}
+                  width={144}
+                  height={144}
                   style={{ width: '100%', height: '100%' }}
                   className="object-contain group-hover:scale-105 transition-transform duration-300"
                 />
@@ -117,12 +117,12 @@ export const ServicesOverview: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
               {/* Illustration Image Left */}
               <div className="md:col-span-5 flex items-center justify-center">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 relative flex items-center justify-center">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 relative flex items-center justify-center">
                   <Image
                     src="/domain-names.png"
                     alt="Domain Name Registration"
-                    width={224}
-                    height={224}
+                    width={176}
+                    height={176}
                     style={{ width: '100%', height: '100%' }}
                     className="object-contain group-hover:scale-105 transition-transform duration-300"
                   />
@@ -156,12 +156,12 @@ export const ServicesOverview: React.FC = () => {
               className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-zinc-200/90 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Illustration Image */}
-              <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 mb-6 flex items-center justify-center">
+              <div className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center">
                 <Image
                   src="/ssl-addon.png"
                   alt="SSL Security & Wildcard Add-ons"
-                  width={176}
-                  height={176}
+                  width={144}
+                  height={144}
                   style={{ width: '100%', height: '100%' }}
                   className="object-contain group-hover:scale-105 transition-transform duration-300"
                 />
@@ -187,12 +187,12 @@ export const ServicesOverview: React.FC = () => {
               className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-zinc-200/90 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Illustration Image */}
-              <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 mb-6 flex items-center justify-center">
+              <div className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 mb-6 flex items-center justify-center">
                 <Image
                   src="/website-migration.png"
                   alt="Free Website Migration"
-                  width={176}
-                  height={176}
+                  width={144}
+                  height={144}
                   style={{ width: '100%', height: '100%' }}
                   className="object-contain group-hover:scale-105 transition-transform duration-300"
                 />

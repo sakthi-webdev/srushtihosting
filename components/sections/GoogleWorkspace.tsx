@@ -94,7 +94,7 @@ export const GoogleWorkspace: React.FC<GoogleWorkspaceProps> = () => {
                 width={450}
                 height={450}
                 style={{ maxWidth: '100%', height: 'auto' }}
-                className="object-contain max-h-[400px]"
+                className="object-contain max-h-[320px] sm:max-h-[360px]"
               />
             </div>
           </motion.div>
