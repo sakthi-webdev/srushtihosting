@@ -86,10 +86,10 @@ export const Domains: React.FC = () => {
               <Image
                 src="/domain-names-services.png"
                 alt="Domain Registration Infrastructure"
-                width={550}
-                height={450}
+                width={650}
+                height={550}
                 style={{ maxWidth: '100%', height: 'auto' }}
-                className="object-contain max-h-[340px] sm:max-h-[380px]"
+                className="object-contain max-h-[440px] sm:max-h-[500px] w-full"
               />
             </div>
           </motion.div>

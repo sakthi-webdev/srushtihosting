@@ -72,13 +72,13 @@ export const Hero: React.FC = () => {
                 <Image
                   src="/hosting-infrastructure.png"
                   alt="Srushti Hosting Infrastructure Illustration"
-                  width={600}
-                  height={500}
+                  width={700}
+                  height={600}
                   priority
                   loading="eager"
                   fetchPriority="high"
                   style={{ maxWidth: '100%', height: 'auto' }}
-                  className="object-contain max-h-[380px] sm:max-h-[440px]"
+                  className="object-contain max-h-[480px] sm:max-h-[560px] lg:max-h-[600px] w-full"
                   onError={() => setImageError(true)}
                 />
               </div>

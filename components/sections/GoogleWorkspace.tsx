@@ -91,10 +91,10 @@ export const GoogleWorkspace: React.FC<GoogleWorkspaceProps> = () => {
               <Image
                 src="/google-workspace-services.png"
                 alt="Google Workspace Enterprise Email"
-                width={450}
-                height={450}
+                width={600}
+                height={550}
                 style={{ maxWidth: '100%', height: 'auto' }}
-                className="object-contain max-h-[320px] sm:max-h-[360px]"
+                className="object-contain max-h-[420px] sm:max-h-[480px] w-full"
               />
             </div>
           </motion.div>
