@@ -122,7 +122,7 @@ export const Nav: React.FC = () => {
                   height={56}
                   priority
                   loading="eager"
-                  style={{ height: '48px', width: 'auto' }}
+                  style={{ height: '66px', width: 'auto' }}
                   className="object-contain"
                 />
               </Link>
