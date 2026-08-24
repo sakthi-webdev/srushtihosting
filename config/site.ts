@@ -11,6 +11,7 @@ export const siteConfig = {
     email: 'support@srushtihosting.com',
     phone: '+91 98400 86335',
     whatsapp: 'https://wa.me/919840086335',
+    address: 'Srushti Solutions, 1st Floor, N 67, O 22, North Mada Street, Above ICICI Bank, Thiruvanmiyur, Chennai - 600041',
   },
   links: {
     terms: '/terms',

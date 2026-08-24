@@ -42,7 +42,7 @@ export default function RefundPolicyPage() {
               <li><strong className="text-[#0F0F0F]">Web Hosting Subscriptions:</strong> Starter, Business, and Professional Shared NVMe hosting plans.</li>
               <li><strong className="text-[#0F0F0F]">Domain Name Registrations, Renewals & Transfers:</strong> Domain name fees paid for .com, .in, .co.in, .org, .net, or any other TLD extension once registered with registry authorities (ICANN / NIXI).</li>
               <li><strong className="text-[#0F0F0F]">Google Workspace Licenses:</strong> User seats and business email accounts provisioned through Google Workspace.</li>
-              <li><strong className="text-[#0F0F0F]">Custom Add-ons & Dedicated IPs:</strong> Dedicated IPv4 allocations, SSL certificates, and custom admin setup services.</li>
+              <li><strong className="text-[#0F0F0F]">Custom Add-ons & Dedicated IPs:</strong> Dedicated IPv4 allocations (which are currently not offered), SSL certificates, and custom admin setup services.</li>
             </ul>
           </section>
 
@@ -76,11 +76,9 @@ export default function RefundPolicyPage() {
           <section className="space-y-3 pt-4 border-t border-zinc-200">
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">6. Contact Our Billing Department</h2>
             <p>If you have any questions regarding subscriptions, invoices, or cancellations, please contact us:</p>
-            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-1 font-medium text-[#0F0F0F]">
-              <p><strong>Entity Name:</strong> {siteConfig.name}</p>
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-2 font-medium text-[#0F0F0F]">
               <p><strong>Billing Email:</strong> <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C81E1E] underline">{siteConfig.contact.email}</a></p>
-              <p><strong>Phone Line:</strong> {siteConfig.contact.phone}</p>
-              <p><strong>Support Window:</strong> Monday – Saturday (9:00 AM – 7:00 PM IST)</p>
+              <p><strong>Address:</strong> {siteConfig.contact.address}</p>
             </div>
           </section>
 

@@ -17,7 +17,7 @@ export const SSLAddons: React.FC = () => {
             Enhanced Security & Power
           </h2>
           <p className="text-base sm:text-lg text-[#52525B]">
-            Premium Wildcard SSL certificates, dedicated IPs, and automated malware scanning packages.
+            Premium Wildcard SSL certificates, automated malware protection, and automated site vault backups.
           </p>
         </div>
 
@@ -29,8 +29,8 @@ export const SSLAddons: React.FC = () => {
           </div>
           <div className="p-8 rounded-2xl border border-[#E5E5E5] bg-white">
             <FiCpu className="w-8 h-8 text-[#C81E1E] mb-4" />
-            <h3 className="text-lg font-bold text-[#0F0F0F] mb-2">Dedicated IPv4 Address</h3>
-            <p className="text-xs text-[#52525B] mb-4">Isolated IP address for optimal email deliverability and custom SSL setups.</p>
+            <h3 className="text-lg font-bold text-[#0F0F0F] mb-2">Automated Malware Protection</h3>
+            <p className="text-xs text-[#52525B] mb-4">Real-time threat monitoring, daily vulnerability scanning, and malware removal.</p>
           </div>
           <div className="p-8 rounded-2xl border border-[#E5E5E5] bg-white">
             <FiServer className="w-8 h-8 text-[#C81E1E] mb-4" />

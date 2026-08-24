@@ -35,7 +35,7 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">2. Provision of Hosting Services</h2>
             <p>
-              Srushti Hosting provides web hosting infrastructure, cPanel server environments, custom domain registration, SSL certificates, and Google Workspace integration. We reserve the right to perform routine server updates, hardware maintenance, and security enhancements to maintain network stability and performance.
+              Srushti Hosting provides web hosting infrastructure, cPanel server environments, custom domain registration, SSL certificates, and Google Workspace integration. All hosting packages operate on shared IP server infrastructure; dedicated IP addresses are not offered. We reserve the right to perform routine server updates, hardware maintenance, and security enhancements to maintain network stability and performance.
             </p>
           </section>
 
@@ -92,13 +92,11 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3 pt-4 border-t border-zinc-200">
-            <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">9. Corporate Contact Information</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">9. Contact Information</h2>
             <p>For questions regarding these Terms of Service or billing inquiries, please contact our legal desk:</p>
-            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-1 font-medium text-[#0F0F0F]">
-              <p><strong>Entity Name:</strong> {siteConfig.name}</p>
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-2 font-medium text-[#0F0F0F]">
               <p><strong>Support Email:</strong> <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C81E1E] underline">{siteConfig.contact.email}</a></p>
-              <p><strong>Phone Support:</strong> {siteConfig.contact.phone}</p>
-              <p><strong>WhatsApp Support:</strong> Available 24/7 via Website Chat</p>
+              <p><strong>Address:</strong> {siteConfig.contact.address}</p>
             </div>
           </section>
 

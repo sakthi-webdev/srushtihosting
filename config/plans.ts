@@ -74,7 +74,7 @@ export const hostingPlansData: HostingPlan[] = [
       { text: 'Unlimited Email Accounts' },
       { text: 'Unmetered Bandwidth' },
       { text: 'Free SSL Certificate' },
-      { text: 'Free Dedicated IP', isNew: true },
+      { text: 'High CPU & RAM Allocation', isNew: true },
       { text: 'Free Website Migration' },
     ],
     monthlyCheckoutUrl: `${baseUrl}/order/professional-monthly`,

@@ -13,7 +13,7 @@ Srushti Hosting delivers high-performance NVMe web hosting infrastructure, insta
 - **Business Plan** (Recommended): ₹799/month (or ₹639/month billed annually at ₹7,668/yr)
   - 15 GB SSD Storage, 5 Websites, Unlimited Email Accounts, Unmetered Bandwidth, Free SSL Certificate, Free Website Migration, 24/7 Priority Support.
 - **Professional Plan**: ₹1,499/month (or ₹1,199/month billed annually at ₹14,388/yr)
-  - 30 GB SSD Storage, Unlimited Websites, Unlimited Email Accounts, Unmetered Bandwidth, Free SSL Certificate, Free Dedicated IP, Free Website Migration.
+  - 30 GB SSD Storage, Unlimited Websites, Unlimited Email Accounts, Unmetered Bandwidth, Free SSL Certificate, High CPU & RAM Allocation, Free Website Migration.
 
 ### Domain Name Registration
 - **.com**: ₹949/yr (Renewal ₹1,399/yr)
@@ -31,7 +31,7 @@ Includes WHOIS Privacy Protection, Instant DNS Management, and Auto-Renewal Safe
 
 ### Security & Add-ons
 - Free Automated SSL Certificates (HTTPS Encryption)
-- Wildcard SSL & Dedicated IPv4 Add-ons
+- Wildcard SSL Certificates & Malware Protection
 - Automated Daily Snapshots & Web Application Firewall (WAF)
 - Free Expert Website Migration with Zero Downtime
 
@@ -40,6 +40,7 @@ Includes WHOIS Privacy Protection, Instant DNS Management, and Auto-Renewal Safe
 - **Client Area / Login**: https://client.srushtihosting.com/login
 - **Support Email**: support@srushtihosting.com
 - **Phone / WhatsApp**: +91 98400 86335
+- **Address**: Srushti Solutions, 1st Floor, N 67, O 22, North Mada Street, Above ICICI Bank, Thiruvanmiyur, Chennai - 600041
 - **Terms of Service**: https://srushtihosting.com/terms
 - **Privacy Policy**: https://srushtihosting.com/privacy
 - **Refund Policy**: https://srushtihosting.com/refund-policy

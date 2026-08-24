@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMessageSquare, FiCheckCircle, FiAlertCircle, FiArrowRight } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMessageSquare, FiCheckCircle, FiAlertCircle, FiArrowRight, FiMapPin } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { CountrySelect } from '@/components/ui/CountrySelect';
 import { siteConfig } from '@/config/site';
@@ -190,6 +190,18 @@ export const Contact: React.FC = () => {
                     </span>
                   </div>
                 </a>
+
+                <div className="flex items-start gap-4 text-[#52525B]">
+                  <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center text-zinc-800 shrink-0">
+                    <FiMapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="block text-xs text-[#52525B] font-medium">Registered Address</span>
+                    <span className="font-medium text-[#0F0F0F] text-xs sm:text-sm leading-relaxed block mt-0.5">
+                      {siteConfig.contact.address}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
