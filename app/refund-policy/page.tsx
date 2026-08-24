@@ -50,7 +50,7 @@ export default function RefundPolicyPage() {
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">3. Subscription Cancellation Procedure</h2>
             <p>You may cancel your hosting subscription or disable auto-renewal at any time prior to your next billing cycle:</p>
             <ol className="list-decimal pl-6 space-y-2 text-[#52525B]">
-              <li>Log in to your Client Area portal or email our billing support desk at <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C81E1E] underline">{siteConfig.contact.email}</a>.</li>
+              <li>Log in to your Client Area portal or email our billing support desk at <a href="mailto:billing@srushtihosting.com" className="text-[#C81E1E] underline">billing@srushtihosting.com</a>.</li>
               <li>Specify your hosting account or domain name and submit a cancellation request.</li>
               <li>Your service will remain active until the end of your current paid billing period, after which it will expire without further recurring charges.</li>
             </ol>
@@ -77,7 +77,7 @@ export default function RefundPolicyPage() {
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">6. Contact Our Billing Department</h2>
             <p>If you have any questions regarding subscriptions, invoices, or cancellations, please contact us:</p>
             <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-2 font-medium text-[#0F0F0F]">
-              <p><strong>Billing Email:</strong> <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C81E1E] underline">{siteConfig.contact.email}</a></p>
+              <p><strong>Billing Email:</strong> <a href="mailto:billing@srushtihosting.com" className="text-[#C81E1E] underline">billing@srushtihosting.com</a></p>
               <p><strong>Address:</strong> {siteConfig.contact.address}</p>
             </div>
           </section>

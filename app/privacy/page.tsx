@@ -89,7 +89,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">8. Contact Our Privacy Officer</h2>
             <p>If you have any questions or privacy concerns regarding this policy, please contact us:</p>
             <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 text-sm space-y-2 font-medium text-[#0F0F0F]">
-              <p><strong>Email:</strong> <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C81E1E] underline">{siteConfig.contact.email}</a></p>
+              <p><strong>Email:</strong> <a href="mailto:info@srushtihosting.com" className="text-[#C81E1E] underline">info@srushtihosting.com</a></p>
               <p><strong>Address:</strong> {siteConfig.contact.address}</p>
             </div>
           </section>
