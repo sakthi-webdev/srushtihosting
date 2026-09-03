@@ -13,46 +13,46 @@ export const FAQ: React.FC = () => {
   const leftFaqs = [
     {
       id: 0,
+      q: 'Who operates Srushti Hosting?',
+      a: 'Srushti Hosting is the web hosting and cloud infrastructure unit of Srushti Solutions, based in Chennai, India. All hosting servers, billing, customer provisioning, and 24/7 technical support are managed directly by Srushti Solutions.',
+    },
+    {
+      id: 1,
       q: 'What type of web hosting plan do I need?',
       a: 'For personal blogs or small business sites, our Starter plan provides 5 GB NVMe SSD storage and 50 GB monthly bandwidth. For multiple websites or high-traffic stores, our Business or Professional plans offer unmetered bandwidth and boosted RAM/CPU resources.',
     },
     {
-      id: 1,
+      id: 2,
       q: 'What is Shared NVMe web hosting?',
       a: 'Shared NVMe hosting provisions your website files on enterprise NVMe solid-state drives, offering up to 5x faster read/write data speeds compared to traditional SSD hosting.',
     },
     {
-      id: 2,
+      id: 3,
       q: 'Do you offer domains and Google Workspace?',
       a: 'Yes, you can register custom domains (.com, .in, etc.) and provision official Google Workspace business email accounts (@yourdomain.com) directly through Srushti Hosting with automatic DNS setup.',
-    },
-    {
-      id: 3,
-      q: 'How does Google Workspace email work?',
-      a: 'When you purchase Google Workspace through Srushti Hosting, we automatically configure your domain MX and SPF records so your team gets professional @yourdomain.com email with Gmail, Drive, and Meet.',
     },
   ];
 
   const rightFaqs = [
     {
       id: 4,
+      q: 'How does Google Workspace email work?',
+      a: 'When you purchase Google Workspace through Srushti Hosting, we automatically configure your domain MX and SPF records so your team gets professional @yourdomain.com email with Gmail, Drive, and Meet.',
+    },
+    {
+      id: 5,
       q: 'How do I migrate my site to Srushti Hosting?',
       a: 'Our technical team offers free website migration for Business and Professional plans. Simply submit a ticket in your Client Portal after sign-up, and we will transfer your site with zero downtime.',
     },
     {
-      id: 5,
-      q: 'Why should I choose Srushti Hosting?',
-      a: 'We prioritize pure performance, 99.99% uptime SLAs, and transparent pricing without hidden renewal price spikes, backed by 24/7 expert technical support.',
-    },
-    {
       id: 6,
-      q: 'How do I manage my hosting account?',
-      a: 'All invoicing, domain DNS settings, and server options are accessible 24/7 through your single sign-on client portal.',
+      q: 'Why should I choose Srushti Hosting?',
+      a: 'We prioritize pure performance, 99.99% uptime SLAs, and transparent pricing without hidden renewal price spikes. As a technology unit of Srushti Solutions, our hosting infrastructure delivers enterprise-grade reliability and security backed by 24/7 expert support.',
     },
     {
       id: 7,
-      q: 'Can I register multiple domain extensions?',
-      a: 'Yes! You can search, register, and manage any number of domain extensions (.com, .in, .co.in, .org, .net, etc.) with instant DNS management and WHOIS privacy protection.',
+      q: 'How do I manage my hosting account?',
+      a: 'All invoicing, domain DNS settings, and server options are accessible 24/7 through your single sign-on client portal.',
     },
   ];
 

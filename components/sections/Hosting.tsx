@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiCheck } from 'react-icons/fi';
-import { hostingPlansData } from '@/config/plans';
+import { hostingPlansData, ENABLE_ANNUAL_DISCOUNT } from '@/config/plans';
 import { sectionFlags } from '@/config/sections';
 
 export const Hosting: React.FC = () => {
@@ -38,7 +38,9 @@ export const Hosting: React.FC = () => {
             The Perfect Hosting Partner for Your Business
           </h2>
           <p className="text-base text-[#52525B] max-w-2xl mx-auto">
-            Choose the plan that fits your growth. Switch between monthly and annual billing to save up to 20% on web hosting.
+            {ENABLE_ANNUAL_DISCOUNT
+              ? 'Choose the plan that fits your growth. Switch between monthly and annual billing to save up to 20% on web hosting.'
+              : 'Choose the plan that fits your growth. Flexible monthly and annual billing options for fast, reliable web hosting.'}
           </p>
         </motion.div>
 
@@ -64,9 +66,11 @@ export const Hosting: React.FC = () => {
               }`}
             >
               <span>Annual Billing</span>
-              <span className="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                Save 20%
-              </span>
+              {ENABLE_ANNUAL_DISCOUNT && (
+                <span className="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Save 20%
+                </span>
+              )}
             </button>
           </div>
         </div>
@@ -118,17 +122,19 @@ export const Hosting: React.FC = () => {
                     </p>
 
                     {/* Sale Badge Tag */}
-                    <div className="mb-3">
-                      <span
-                        className={`text-[11px] font-extrabold px-3 py-1 rounded-md uppercase tracking-wider inline-block ${
-                          isRecommended
-                            ? 'bg-white text-[#C81E1E]'
-                            : 'bg-white/10 text-amber-300 border border-white/15'
-                        }`}
-                      >
-                        {plan.saleTag}
-                      </span>
-                    </div>
+                    {plan.saleTag && (
+                      <div className="mb-3">
+                        <span
+                          className={`text-[11px] font-extrabold px-3 py-1 rounded-md uppercase tracking-wider inline-block ${
+                            isRecommended
+                              ? 'bg-white text-[#C81E1E]'
+                              : 'bg-white/10 text-amber-300 border border-white/15'
+                          }`}
+                        >
+                          {plan.saleTag}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Price Display */}
                     <div className="flex items-baseline gap-1 pt-1">

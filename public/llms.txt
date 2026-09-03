@@ -1,18 +1,18 @@
 # Srushti Hosting
 
-> Srushti Hosting provides fast, secure & reliable Web Hosting, Domain Registration, Google Workspace, and SSL Security for growing businesses.
+> Srushti Hosting (A Unit of Srushti Solutions) provides fast, secure & reliable Web Hosting, Domain Registration, Google Workspace, and SSL Security for growing businesses.
 
 ## Overview
-Srushti Hosting delivers high-performance NVMe web hosting infrastructure, instant domain registration with full DNS management, official Google Workspace business emails, free SSL certificates, and zero-downtime website migrations backed by 24/7 technical support.
+Srushti Hosting delivers high-performance NVMe web hosting infrastructure engineered and operated by Srushti Solutions. Features include instant domain registration with full DNS management, official Google Workspace business emails, free SSL certificates, and zero-downtime website migrations backed by 24/7 technical support.
 
 ## Hosting Services & Pricing
 
 ### Shared Web Hosting Plans (NVMe SSD)
-- **Starter Plan**: ₹349/month (or ₹279/month billed annually at ₹3,348/yr)
+- **Starter Plan**: ₹349/month (or billed annually at ₹4,188/yr)
   - 5 GB SSD Storage, 1 Website, 5 Email Accounts, 50 GB Monthly Bandwidth, Free SSL Certificate, cPanel, Automated Daily Snapshots.
-- **Business Plan** (Recommended): ₹799/month (or ₹639/month billed annually at ₹7,668/yr)
+- **Business Plan** (Recommended): ₹799/month (or billed annually at ₹9,588/yr)
   - 15 GB SSD Storage, 5 Websites, Unlimited Email Accounts, Unmetered Bandwidth, Free SSL Certificate, Free Website Migration, 24/7 Priority Support.
-- **Professional Plan**: ₹1,499/month (or ₹1,199/month billed annually at ₹14,388/yr)
+- **Professional Plan**: ₹1,499/month (or billed annually at ₹17,988/yr)
   - 30 GB SSD Storage, Unlimited Websites, Unlimited Email Accounts, Unmetered Bandwidth, Free SSL Certificate, High CPU & RAM Allocation, Free Website Migration.
 
 ### Domain Name Registration

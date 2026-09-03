@@ -28,7 +28,7 @@ export default function RefundPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">1. General Refund Policy</h2>
             <p>
-              At Srushti Hosting, we deliver enterprise-grade NVMe web hosting, domain registration, and cloud services. Please note that all payments made for web hosting subscription plans, domain names, email services, and add-on licenses are <strong className="text-[#0F0F0F]">non-refundable</strong>.
+              At Srushti Hosting (a technology unit of Srushti Solutions), we deliver enterprise-grade NVMe web hosting, domain registration, and cloud services. Please note that all payments made for web hosting subscription plans, domain names, email services, and add-on licenses are <strong className="text-[#0F0F0F]">non-refundable</strong>.
             </p>
             <p>
               We do not offer money-back guarantees, cash refunds, or prorated refunds for partial billing periods once a service has been activated.

@@ -2,6 +2,8 @@ export const siteConfig = {
   name: 'Srushti Hosting',
   description: 'Fast, secure & reliable Web Hosting, Domain Registration, and Google Workspace for growing businesses.',
   url: 'https://srushtihosting.com',
+  parentCompany: 'Srushti Solutions',
+  entityLine: 'A Unit of Srushti Solutions',
   upmind: {
     clientAreaUrl: process.env.NEXT_PUBLIC_UPMIND_CLIENT_AREA_URL || 'https://client.srushtihosting.com/login',
     orderConfigUrl: process.env.NEXT_PUBLIC_UPMIND_ORDER_CONFIG_URL || 'https://client.srushtihosting.com/order/product',

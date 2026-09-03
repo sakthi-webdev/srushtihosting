@@ -54,8 +54,13 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.name,
+    legalName: siteConfig.parentCompany,
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
+    parentOrganization: {
+      '@type': 'Organization',
+      name: siteConfig.parentCompany,
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       email: siteConfig.contact.email,
@@ -72,6 +77,10 @@ export default function RootLayout({
     provider: {
       '@type': 'Organization',
       name: siteConfig.name,
+      parentOrganization: {
+        '@type': 'Organization',
+        name: siteConfig.parentCompany,
+      },
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

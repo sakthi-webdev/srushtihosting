@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-zinc-800 items-start">
 
           {/* Brand Logo & Intro */}
-          <div className="md:col-span-6 space-y-4 text-left">
+          <div className="md:col-span-6 space-y-3 text-left">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.png"
@@ -24,8 +24,11 @@ export const Footer: React.FC = () => {
                 className="object-contain brightness-110"
               />
             </Link>
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-400">
+              {siteConfig.entityLine}
+            </p>
             <p className="text-sm text-zinc-300 max-w-md leading-relaxed font-normal">
-              High-performance Web Hosting, Domain Registration, and Business Email Solutions engineered for reliability, security, and enterprise scalability.
+              High-performance Web Hosting, Domain Registration, and Cloud Infrastructure engineered for reliability, security, and enterprise scalability by Srushti Solutions.
             </p>
           </div>
 
@@ -84,7 +87,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Copyright & Payment Icons */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-zinc-300">
           <p className="text-zinc-300 font-medium">
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            © {new Date().getFullYear()} {siteConfig.name} • {siteConfig.entityLine}. All rights reserved.
           </p>
 
           {/* Payment Method SVG Icons Clean Bar */}
