@@ -28,7 +28,7 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">1. Terms of Agreement</h2>
             <p>
-              Welcome to Srushti Hosting, a technology unit of Srushti Solutions (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By creating an account, registering a domain, subscribing to web hosting services, purchasing SSL security add-ons, or placing an inquiry on our website ({siteConfig.url}), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please refrain from using our infrastructure or services.
+              Welcome to Srushti Hosting, A Unit of Srushti Solutions (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By creating an account, registering a domain, subscribing to web hosting services, purchasing SSL security add-ons, or placing an inquiry on our website ({siteConfig.url}), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please refrain from using our infrastructure or services.
             </p>
           </section>
 

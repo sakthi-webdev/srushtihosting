@@ -3,7 +3,7 @@
 > Srushti Hosting (A Unit of Srushti Solutions) provides fast, secure & reliable Web Hosting, Domain Registration, Google Workspace, and SSL Security for growing businesses.
 
 ## Overview
-Srushti Hosting delivers high-performance NVMe web hosting infrastructure engineered and operated by Srushti Solutions. Features include instant domain registration with full DNS management, official Google Workspace business emails, free SSL certificates, and zero-downtime website migrations backed by 24/7 technical support.
+Srushti Hosting (A Unit of Srushti Solutions) delivers high-performance NVMe web hosting infrastructure, instant domain registration with full DNS management, official Google Workspace business emails, free SSL certificates, and zero-downtime website migrations backed by 24/7 technical support.
 
 ## Hosting Services & Pricing
 

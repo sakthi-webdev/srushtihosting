@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               {siteConfig.entityLine}
             </p>
             <p className="text-sm text-zinc-300 max-w-md leading-relaxed font-normal">
-              High-performance Web Hosting, Domain Registration, and Cloud Infrastructure engineered for reliability, security, and enterprise scalability by Srushti Solutions.
+              High-performance Web Hosting, Domain Registration, and Business Email Solutions engineered for reliability, security, and enterprise scalability.
             </p>
           </div>
 

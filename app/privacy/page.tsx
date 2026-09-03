@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="text-lg sm:text-xl font-bold text-[#0F0F0F]">1. Introduction & Overview</h2>
             <p>
-              Srushti Hosting, a technology unit of Srushti Solutions (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), is committed to protecting the privacy and security of our clients, website visitors, and service subscribers. This Privacy Policy outlines how we collect, use, store, process, and safeguard your personal information when you visit our website ({siteConfig.url}) or purchase our web hosting, domain registration, SSL certificates, and business email services.
+              Srushti Hosting, A Unit of Srushti Solutions (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), is committed to protecting the privacy and security of our clients, website visitors, and service subscribers. This Privacy Policy outlines how we collect, use, store, process, and safeguard your personal information when you visit our website ({siteConfig.url}) or purchase our web hosting, domain registration, SSL certificates, and business email services.
             </p>
           </section>
 

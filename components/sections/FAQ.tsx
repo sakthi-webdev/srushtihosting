@@ -14,7 +14,7 @@ export const FAQ: React.FC = () => {
     {
       id: 0,
       q: 'Who operates Srushti Hosting?',
-      a: 'Srushti Hosting is the web hosting and cloud infrastructure unit of Srushti Solutions, based in Chennai, India. All hosting servers, billing, customer provisioning, and 24/7 technical support are managed directly by Srushti Solutions.',
+      a: 'Srushti Hosting is A Unit of Srushti Solutions, based in Chennai, India. All hosting servers, billing, customer provisioning, and 24/7 technical support are managed directly by Srushti Solutions.',
     },
     {
       id: 1,
@@ -47,7 +47,7 @@ export const FAQ: React.FC = () => {
     {
       id: 6,
       q: 'Why should I choose Srushti Hosting?',
-      a: 'We prioritize pure performance, 99.99% uptime SLAs, and transparent pricing without hidden renewal price spikes. As a technology unit of Srushti Solutions, our hosting infrastructure delivers enterprise-grade reliability and security backed by 24/7 expert support.',
+      a: 'We prioritize pure performance, 99.99% uptime SLAs, and transparent pricing without hidden renewal price spikes. As A Unit of Srushti Solutions, our hosting infrastructure delivers enterprise-grade reliability and security backed by 24/7 expert support.',
     },
     {
       id: 7,
