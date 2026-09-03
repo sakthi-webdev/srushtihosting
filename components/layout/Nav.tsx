@@ -42,25 +42,6 @@ export const Nav: React.FC = () => {
 
   return (
     <>
-      {/* Sleek Professional Corporate Utility Bar */}
-      <div className="bg-[#0F0F0F] text-zinc-400 text-xs py-2 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block shrink-0" />
-            <span className="text-zinc-300 font-medium text-[11px] sm:text-xs tracking-wide">
-              Srushti Hosting <span className="text-zinc-600">•</span> <span className="text-amber-400 font-semibold">{siteConfig.entityLine}</span>
-            </span>
-          </div>
-          <div className="hidden sm:flex items-center gap-5 text-[11px] text-zinc-400">
-            <span>Enterprise NVMe Cloud Hosting</span>
-            <span className="text-zinc-750">|</span>
-            <a href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors font-medium">
-              {siteConfig.contact.phone}
-            </a>
-          </div>
-        </div>
-      </div>
-
       <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]/70 transition-all shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-24">
